@@ -5,8 +5,11 @@ import { Layout } from "@/components/Layout";
 import { ModuleCard } from "@/components/ModuleCard";
 import { ArrowRight, Leaf, TreePine } from "lucide-react";
 import { modules } from "@/data/modules";
+import { usePayment } from "@/context/PaymentContext";
 
 const Index = () => {
+  const { hasPaid } = usePayment();
+  
   return (
     <Layout>
       {/* Hero Section */}
@@ -22,8 +25,8 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                 <Button asChild size="lg" className="bg-bonsai-leaf hover:bg-bonsai-leaf/90">
-                  <Link to="/modules">
-                    Börja lära dig <ArrowRight className="ml-2" size={18} />
+                  <Link to={hasPaid ? "/modules" : "/payment"}>
+                    {hasPaid ? "Se alla moduler" : "Köp kursen"} <ArrowRight className="ml-2" size={18} />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
@@ -61,17 +64,17 @@ const Index = () => {
                 key={module.id}
                 number={module.id}
                 title={module.title}
-                description={module.shortDescription}
+                description={hasPaid ? module.shortDescription : "Lås upp denna modul genom att köpa kursen."}
                 icon={module.icon}
-                to={`/module/${module.id}`}
+                to={hasPaid ? `/module/${module.id}` : "/payment"}
               />
             ))}
           </div>
 
           <div className="mt-12 text-center">
             <Button asChild size="lg">
-              <Link to="/modules">
-                Visa alla moduler <ArrowRight className="ml-2" size={16} />
+              <Link to={hasPaid ? "/modules" : "/payment"}>
+                {hasPaid ? "Visa alla moduler" : "Köp kursen för att se alla moduler"} <ArrowRight className="ml-2" size={16} />
               </Link>
             </Button>
           </div>
@@ -87,7 +90,7 @@ const Index = () => {
               Bonsai är en konstform som kräver tålamod, kunskap och känsla. Låt oss guida dig genom varje steg på vägen.
             </p>
             <Button asChild size="lg" className="bg-bonsai-bark hover:bg-bonsai-bark/90">
-              <Link to="/modules">Börja kursen nu</Link>
+              <Link to={hasPaid ? "/modules" : "/payment"}>{hasPaid ? "Fortsätt med kursen" : "Köp kursen nu"}</Link>
             </Button>
           </div>
         </div>
