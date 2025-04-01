@@ -11,13 +11,13 @@ const PaymentContext = createContext<PaymentContextType | undefined>(undefined);
 export const PaymentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Kontrollera localStorage för betalningsstatus när komponenten laddas
   const [hasPaid, setHasPaid] = useState<boolean>(() => {
-    const savedPaymentStatus = localStorage.getItem('bonsai-payment-status');
+    const savedPaymentStatus = localStorage.getItem('bonsai-ebook-payment-status');
     return savedPaymentStatus === 'paid';
   });
 
   // Spara betalningsstatus till localStorage när den ändras
   useEffect(() => {
-    localStorage.setItem('bonsai-payment-status', hasPaid ? 'paid' : 'unpaid');
+    localStorage.setItem('bonsai-ebook-payment-status', hasPaid ? 'paid' : 'unpaid');
   }, [hasPaid]);
 
   return (

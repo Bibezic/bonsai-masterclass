@@ -18,7 +18,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
             <div className="md:w-1/2 text-center md:text-left">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-bonsai-bark">
-                Bonsai <span className="text-bonsai-leaf">Masterclass</span>
+                Bonsai <span className="text-bonsai-leaf">E-bok</span>
               </h1>
               <p className="text-lg md:text-xl mb-8 text-foreground/80 max-w-lg">
                 Lär dig konsten att odla och vårda ett bonsaiträd, från grunderna till avancerade tekniker.
@@ -26,11 +26,11 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                 <Button asChild size="lg" className="bg-bonsai-leaf hover:bg-bonsai-leaf/90">
                   <Link to={hasPaid ? "/modules" : "/payment"}>
-                    {hasPaid ? "Se alla moduler" : "Köp kursen"} <ArrowRight className="ml-2" size={18} />
+                    {hasPaid ? "Läs e-boken" : "Köp e-boken"} <ArrowRight className="ml-2" size={18} />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/about">Läs mer om kursen</Link>
+                  <Link to="/about">Läs mer om e-boken</Link>
                 </Button>
               </div>
             </div>
@@ -54,7 +54,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Börja din bonsairesa</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Utforska våra moduler och lär dig allt från att välja rätt träd till avancerade beskärningstekniker.
+              Utforska våra kapitel och lär dig allt från att välja rätt träd till avancerade beskärningstekniker.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ const Index = () => {
                 key={module.id}
                 number={module.id}
                 title={module.title}
-                description={hasPaid ? module.shortDescription : "Lås upp denna modul genom att köpa kursen."}
+                description={hasPaid ? module.shortDescription : "Lås upp detta kapitel genom att köpa e-boken."}
                 icon={module.icon}
                 to={hasPaid ? `/module/${module.id}` : "/payment"}
               />
@@ -74,7 +74,7 @@ const Index = () => {
           <div className="mt-12 text-center">
             <Button asChild size="lg">
               <Link to={hasPaid ? "/modules" : "/payment"}>
-                {hasPaid ? "Visa alla moduler" : "Köp kursen för att se alla moduler"} <ArrowRight className="ml-2" size={16} />
+                {hasPaid ? "Visa alla kapitel" : "Köp e-boken för att se alla kapitel"} <ArrowRight className="ml-2" size={16} />
               </Link>
             </Button>
           </div>
@@ -87,10 +87,10 @@ const Index = () => {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Redo att börja din bonsairesa?</h2>
             <p className="text-muted-foreground mb-8">
-              Bonsai är en konstform som kräver tålamod, kunskap och känsla. Låt oss guida dig genom varje steg på vägen.
+              Bonsai är en konstform som kräver tålamod, kunskap och känsla. Låt vår e-bok guida dig genom varje steg på vägen.
             </p>
             <Button asChild size="lg" className="bg-bonsai-bark hover:bg-bonsai-bark/90">
-              <Link to={hasPaid ? "/modules" : "/payment"}>{hasPaid ? "Fortsätt med kursen" : "Köp kursen nu"}</Link>
+              <Link to={hasPaid ? "/modules" : "/payment"}>{hasPaid ? "Läs e-boken" : "Köp e-boken nu"}</Link>
             </Button>
           </div>
         </div>
