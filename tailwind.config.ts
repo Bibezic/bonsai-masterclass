@@ -115,8 +115,18 @@ export default {
 				sans: ['Inter', 'sans-serif'],
 				serif: ['Noto Serif', 'serif'],
 				display: ['Cardo', 'serif']
-			}
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: 'none',
+					},
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"), 
+		require("@tailwindcss/typography")
+	],
 } satisfies Config;
