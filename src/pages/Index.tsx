@@ -26,7 +26,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                 <Button asChild size="lg" className="bg-bonsai-leaf hover:bg-bonsai-leaf/90">
                   <Link to={hasPaid ? "/modules" : "/payment"}>
-                    {hasPaid ? "Läs e-boken" : "Köp e-boken"} <ArrowRight className="ml-2" size={18} />
+                    {hasPaid ? "Läs e-boken" : "Köp e-boken för 49 kr"} <ArrowRight className="ml-2" size={18} />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
@@ -90,7 +90,9 @@ const Index = () => {
               Bonsai är en konstform som kräver tålamod, kunskap och känsla. Låt vår e-bok guida dig genom varje steg på vägen.
             </p>
             <Button asChild size="lg" className="bg-bonsai-bark hover:bg-bonsai-bark/90">
-              <Link to={hasPaid ? "/modules" : "/payment"}>{hasPaid ? "Läs e-boken" : "Köp e-boken nu"}</Link>
+              <Link to={hasPaid ? "/modules" : "/payment"}>
+                {hasPaid ? "Läs e-boken" : "Köp e-boken för 49 kr"}
+              </Link>
             </Button>
           </div>
         </div>
