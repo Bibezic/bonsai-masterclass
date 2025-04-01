@@ -9,7 +9,6 @@ import Modules from "./pages/Modules";
 import Module from "./pages/Module";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import { Layout } from "./components/Layout";
 
 const queryClient = new QueryClient();
 
